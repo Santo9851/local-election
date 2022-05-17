@@ -1,6 +1,8 @@
 from operator import index
 import pandas as pd
 import streamlit as st
+from st_aggrid import AgGrid
+from st_aggrid.gri_options_builder import GridOptionsBuilder
 
 province_no = st.selectbox('Please enter province number', options = ['1','2','3','4','5','6','7'])
 
@@ -31,4 +33,4 @@ selected_post = st.selectbox('Please Select Post' , options = post)
 
 for_selecting_result = data[data['PostName'] == selected_post]
 for_selecting_result = for_selecting_result[for_selecting_result['LocalBodyName'] == selected_local_level]
-st.write(for_selecting_result.loc[:,['CandidateName', 'Age', 'WardNo', 'PoliticalPartyName', 'TotalVotesRecieved']])
+AgGrid(for_selecting_result.loc[:,['CandidateName', 'Age', 'WardNo', 'PoliticalPartyName', 'TotalVotesRecieved']])
