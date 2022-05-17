@@ -33,7 +33,7 @@ selected_post = st.selectbox('Please Select Post' , options = post)
 
 for_selecting_result = data[data['PostName'] == selected_post]
 for_selecting_result = for_selecting_result[for_selecting_result['LocalBodyName'] == selected_local_level]
-FinalResult = for_selecting_result.loc[:,['CandidateName', 'Age', 'WardNo', 'PoliticalPartyName', 'TotalVotesRecieved']]
+FinalResult = for_selecting_result.loc[:,['CandidateName', 'Age', 'WardNo', 'PoliticalPartyName', 'TotalVotesRecieved', 'Remarks']]
 
 dg = GridOptionsBuilder.from_dataframe(FinalResult)
 AgGrid(FinalResult)
