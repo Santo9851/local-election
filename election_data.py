@@ -6,7 +6,7 @@ province_no = st.selectbox('Please enter province number', options = ['1','2','3
 
 province_url = 'https://result.election.gov.np/JSONFiles/Election2079/Local/VoteCountProvince'+province_no+'.json'
 
-
+@st.cache
 def scrapper(url):
     province = pd.read_json(url)
     province = pd.DataFrame(province)
